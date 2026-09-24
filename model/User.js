@@ -28,7 +28,7 @@ class User extends Model {
     generateJWT = function () {
         const today = new Date();
         const expirationDate = new Date(today);
-        expirationDate.setDate(today.getDate() + process.env.JWT_DAYS_EXPIRES);
+        expirationDate.setDate(today.getDate() + Number(process.env.JWT_DAYS_EXPIRES));
 
         return sign({
             id: this.id,
